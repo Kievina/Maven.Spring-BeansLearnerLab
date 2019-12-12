@@ -33,27 +33,17 @@ public class InstructorsConfigTest {
 
     @Test
     public void tcUsaInstructors() {
-        tcUsaInstructors = new Instructors();
-        Assert.assertTrue(tcUsaInstructors.size()==0);
-        Assert.assertFalse(tcUsaInstructors.size()==1);
+        Assert.assertEquals(1, tcUsaInstructors.size());
     }
 
     @Test
     public void tcUkInstructors() {
-        tcUkInstructors = new Instructors();
-        Assert.assertEquals(0,tcUkInstructors.size());
-        Instructor instructor = new Instructor();
-        tcUkInstructors.add(instructor);
-        Assert.assertEquals(1, tcUkInstructors.size());
+        Assert.assertEquals(2, tcUkInstructors.size());
     }
 
     @Test
     public void instructors() {
-        instructors = new Instructors();
-        instructors = new Instructors();
-        Assert.assertEquals(0,instructors.size());
-        Instructor instructor = new Instructor();
-        instructors.add(instructor);
-        Assert.assertEquals(1, instructors.size());
+        Assert.assertEquals(3, instructors.size());
+
     }
 }

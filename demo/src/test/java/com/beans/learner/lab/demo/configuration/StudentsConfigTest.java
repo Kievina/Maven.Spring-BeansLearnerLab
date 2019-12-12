@@ -27,8 +27,6 @@ public class StudentsConfigTest {
 
     @Before
     public void setUp() throws Exception {
-        students = new Students();
-        previousStudents = new Students();
     }
 
     @After
@@ -37,15 +35,25 @@ public class StudentsConfigTest {
 
     @Test
     public void currentStudents() {
-        Assert.assertEquals(0,students.size());
-        Student student = new Student();
-        students.add(student);
-        Assert.assertEquals(1, students.size());
+        Student expected1 = students.findById(1L);
+        Student expected2 = students.findById(2L);
+        Student expected3 = students.findById(3L);
+
+        Assert.assertTrue(students.contains(expected1));
+        Assert.assertTrue(students.contains(expected2));
+        Assert.assertFalse(students.contains(expected3));
     }
 
     @Test
     public void previousStudents() {
-        Assert.assertTrue(previousStudents.size()==0);
-        Assert.assertFalse(previousStudents.size()==1);
+        Student expected1 = previousStudents.findById(1L);
+        Student expected2 = previousStudents.findById(3L);
+        Student expected3 = previousStudents.findById(4L);
+        Student expected4 = previousStudents.findById(5L);
+
+        Assert.assertFalse(previousStudents.contains(expected1));
+        Assert.assertTrue(previousStudents.contains(expected2));
+        Assert.assertTrue(previousStudents.contains(expected3));
+        Assert.assertTrue(previousStudents.contains(expected4));
     }
 }

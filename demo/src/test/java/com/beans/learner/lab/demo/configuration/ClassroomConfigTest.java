@@ -29,10 +29,6 @@ public class ClassroomConfigTest {
 
     @Before
     public void setUp() throws Exception {
-        instructorsTest= new Instructors();
-        studentsTest = new Students();
-        currentCohort = new Classroom(instructorsTest, studentsTest);
-        previousCohort = new Classroom(instructorsTest, studentsTest);
     }
 
     @After
@@ -41,11 +37,13 @@ public class ClassroomConfigTest {
 
     @Test
     public void currentCohort() {
-        Assert.assertEquals(instructorsTest, currentCohort.getInstructors());
+        Assert.assertEquals("Chris", currentCohort.getInstructors().findById(1L).getName());
+        Assert.assertEquals("April", currentCohort.getStudents().findById(1L).getName());
     }
 
     @Test
     public void previousCohort() {
-        Assert.assertEquals(studentsTest, previousCohort.getStudents());
+        Assert.assertEquals("Chris", previousCohort.getInstructors().findById(1L).getName());
+        Assert.assertEquals("David", previousCohort.getStudents().findById(4L).getName());
     }
 }
